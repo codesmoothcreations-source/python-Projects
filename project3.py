@@ -52,7 +52,7 @@ def mark_tasks_complete(tasks):
 
 def main():
     tasks = load_tasks()
-    print(tasks) 
+    # print(tasks) 
 
     while True:
         print("\nTo-Do List Manager")
