@@ -16,9 +16,9 @@ def save_tasks(tasks):
     except:
         print("failed to save")
 
-def view_tasks():
+def view_tasks(tasks):
     tasks = tasks["tasks"]
-    if tasks <= 0:
+    if len(tasks) <= 0:
         print("No tasks | [Empty]")
     else:
         print("You To-Do list: ")
@@ -41,7 +41,7 @@ def mark_task_completed():
 
 def main():
     tasks = load_tasks()
-    print(tasks)
+    # print(tasks)
 
     while True:
         print("\nTo-Do list management system.")
@@ -53,20 +53,21 @@ def main():
         option = int(input("Enter your option: "))
 
         if option == 4:
+            print("Goodbye")
             break
+
         elif option == 1:
-            view_tasks()
+            view_tasks(tasks)
 
         elif option == 2:
             create_tasks(tasks)
             pass
         elif option == 3:
             mark_task_completed()
-            print("Goodbye")
             pass
         else:
             print("Invalid option")
 
-    print("Good bey")
+    # print("Good bey")
 
 main()
