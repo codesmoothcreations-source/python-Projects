@@ -40,7 +40,7 @@ ensure length id valid
 
 
 <!-- Project3 -->
-Load existing item
+-Load existing item
 -create a new item 
 -list items
 -mark items as complete

@@ -1,6 +1,6 @@
 import json 
 
-
+#  Config
 file_name = "todo_list.json"
 
 def load_tasks():
@@ -12,8 +12,8 @@ def load_tasks():
 
 def save_tasks(tasks):
     try:
-        with open(file_name, 'w') as file:
-            return json.dump(tasks, file)
+        with open(file_name, 'w') as item:
+            return json.dump(tasks, item)
     except:
         print("failed to save")
 
@@ -52,7 +52,7 @@ def mark_tasks_complete(tasks):
 
 def main():
     tasks = load_tasks()
-    print(tasks) 
+    # print(tasks) 
 
     while True:
         print("\nTo-Do List Manager")
