@@ -12,8 +12,8 @@ def load_tasks():
 
 def save_tasks(tasks):
     try:
-        with open(file_name, 'w') as item:
-            return json.dump(tasks, item)
+        with open(file_name, 'w') as file:
+            return json.dump(tasks, file)
     except:
         print("failed to save")
 

@@ -3,20 +3,36 @@ import json
 file_name = "to_do.json"
 
 def load_tasks():
-    print("tasks List")
-    pass
+    try:
+        with open(file_name, 'r') as file:
+            return json.load(file)
+    except:
+        return {"tasks": []}
 
-def save_tasks():
-    print("task saved")
-    pass
+def save_tasks(tasks):
+    try:
+        with open(file_name, 'w') as file:
+            return json.dump(tasks, file)
+    except:
+        print("failed to save")
 
 def view_tasks():
-    print("view tasks")
-    pass
+    tasks = tasks["tasks"]
+    if tasks <= 0:
+        print("No tasks | [Empty]")
+    else:
+        print("You To-Do list: ")
+        for idx, task in enumerate(tasks):
+            status = "[Completed]" if ["complete"] else "[Pending]"
+            print(f"{idx + 1} {task['description']} | {status}")
 
-def create_tasks():
-    print("task created")
-    pass
+def create_tasks(tasks):
+    description = input("Enter your tasks description: ").strip()
+    if description:
+        tasks["tasks"].append({"description": description, "complete": False})
+        save_tasks(tasks)
+    else:
+        print("Description can not be empty")
 
 def mark_task_completed():
     print("task completed")
@@ -24,6 +40,8 @@ def mark_task_completed():
 
 
 def main():
+    tasks = load_tasks()
+    print(tasks)
 
     while True:
         print("\nTo-Do list management system.")
@@ -37,13 +55,18 @@ def main():
         if option == 4:
             break
         elif option == 1:
-            load_tasks()
+            view_tasks()
 
         elif option == 2:
-            create_tasks()
+            create_tasks(tasks)
             pass
         elif option == 3:
             mark_task_completed()
+            print("Goodbye")
             pass
+        else:
+            print("Invalid option")
+
+    print("Good bey")
 
 main()
