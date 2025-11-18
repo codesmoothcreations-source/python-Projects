@@ -50,6 +50,10 @@ def mark_tasks_complete(tasks):
     except:
         print("Enter a valid task number.")
 
+# Coming soon
+def delete_tasks():
+    pass
+
 def main():
     tasks = load_tasks()
     # print(tasks) 
